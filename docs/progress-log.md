@@ -50,3 +50,16 @@ Test the API and prepare CRUD routes.
 ### Next Step
 
 Test CRUD endpoints and later connect MongoDB.
+
+## Level 1 Task 3 - Frontend API Integration
+
+### Completed
+
+* Created frontend with HTML, CSS, and vanilla JavaScript
+* Connected frontend to backend REST API
+* Displayed tasks dynamically
+* Added create and delete task functionality
+
+### Next Step
+
+Test frontend and capture screenshots.
