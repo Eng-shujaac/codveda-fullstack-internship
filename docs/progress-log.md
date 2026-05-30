@@ -38,3 +38,15 @@ Initialize the backend project using Node.js and Express.js.
 ### Next Step
 
 Test the API and prepare CRUD routes.
+
+## Day 1 - Task CRUD API Setup
+
+### Completed
+
+* Task CRUD API routes added
+* In-memory task data added
+* API ready for local testing
+
+### Next Step
+
+Test CRUD endpoints and later connect MongoDB.
