@@ -26,3 +26,15 @@ Today I learned how to start a full-stack internship project in a professional w
 ### Next Step
 
 Initialize the backend project using Node.js and Express.js.
+
+## Day 1 - Backend Setup
+
+### Completed
+
+* Backend Node.js project initialized
+* Express server created
+* Health check route added
+
+### Next Step
+
+Test the API and prepare CRUD routes.
