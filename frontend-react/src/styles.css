@@ -60,6 +60,47 @@ h2 {
   gap: 16px;
 }
 
+.auth-form {
+  display: grid;
+  gap: 16px;
+}
+
+.auth-panel .section-header {
+  align-items: flex-start;
+}
+
+.auth-panel .section-header p {
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+.auth-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.active-tab {
+  background: #2563eb;
+}
+
+.account-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.account-panel h2 {
+  margin-bottom: 6px;
+}
+
+.account-panel p {
+  margin: 0;
+  color: #5b6472;
+}
+
 .form-group {
   display: grid;
   gap: 6px;
@@ -255,7 +296,8 @@ button:hover {
   }
 
   .section-header,
-  .task-card-header {
+  .task-card-header,
+  .account-panel {
     align-items: stretch;
     flex-direction: column;
   }

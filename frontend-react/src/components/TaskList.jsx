@@ -1,7 +1,13 @@
 import React from "react";
 import TaskCard from "./TaskCard.jsx";
 
-function TaskList({ tasks, onDeleteTask, onCompleteTask, onUpdateTask }) {
+function TaskList({
+  tasks,
+  canManageTasks,
+  onDeleteTask,
+  onCompleteTask,
+  onUpdateTask,
+}) {
   if (tasks.length === 0) {
     return (
       <section className="panel">
@@ -28,6 +34,7 @@ function TaskList({ tasks, onDeleteTask, onCompleteTask, onUpdateTask }) {
           <TaskCard
             key={task.id}
             task={task}
+            canManageTasks={canManageTasks}
             onDeleteTask={onDeleteTask}
             onCompleteTask={onCompleteTask}
             onUpdateTask={onUpdateTask}

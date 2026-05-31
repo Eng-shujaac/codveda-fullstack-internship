@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
-function TaskCard({ task, onDeleteTask, onCompleteTask, onUpdateTask }) {
+function TaskCard({
+  task,
+  canManageTasks,
+  onDeleteTask,
+  onCompleteTask,
+  onUpdateTask,
+}) {
   const [isEditing, setIsEditing] = useState(false);
   const [editData, setEditData] = useState({
     title: task.title,
@@ -46,16 +52,20 @@ function TaskCard({ task, onDeleteTask, onCompleteTask, onUpdateTask }) {
   const handleSaveEdit = async (event) => {
     event.preventDefault();
 
-    await onUpdateTask(task.id, {
-      title: editData.title.trim(),
-      description: editData.description.trim(),
-      status: editData.status,
-    });
+    try {
+      await onUpdateTask(task.id, {
+        title: editData.title.trim(),
+        description: editData.description.trim(),
+        status: editData.status,
+      });
 
-    setIsEditing(false);
+      setIsEditing(false);
+    } catch (error) {
+      // The parent component shows the error message.
+    }
   };
 
-  if (isEditing) {
+  if (isEditing && canManageTasks) {
     return (
       <article className="task-card">
         <form className="edit-task-form" onSubmit={handleSaveEdit}>
@@ -118,18 +128,20 @@ function TaskCard({ task, onDeleteTask, onCompleteTask, onUpdateTask }) {
           <p>{task.description || "No description provided."}</p>
         </div>
 
-        <div className="task-actions">
-          <button type="button" onClick={handleEditClick}>
-            Edit
-          </button>
-          <button
-            className="delete-button"
-            type="button"
-            onClick={() => onDeleteTask(task.id)}
-          >
-            Delete
-          </button>
-        </div>
+        {canManageTasks && (
+          <div className="task-actions">
+            <button type="button" onClick={handleEditClick}>
+              Edit
+            </button>
+            <button
+              className="delete-button"
+              type="button"
+              onClick={() => onDeleteTask(task.id)}
+            >
+              Delete
+            </button>
+          </div>
+        )}
       </div>
 
       <div className="task-meta">
@@ -137,7 +149,7 @@ function TaskCard({ task, onDeleteTask, onCompleteTask, onUpdateTask }) {
         <span>Created {createdDate}</span>
       </div>
 
-      {!isCompleted && (
+      {canManageTasks && !isCompleted && (
         <button
           className="secondary-button"
           type="button"

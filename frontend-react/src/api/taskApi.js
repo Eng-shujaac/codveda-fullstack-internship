@@ -1,5 +1,15 @@
 const API_URL = "http://localhost:5000/api/tasks";
 
+const getAuthHeaders = (token) => {
+  if (!token) {
+    return {};
+  }
+
+  return {
+    Authorization: `Bearer ${token}`,
+  };
+};
+
 const handleResponse = async (response) => {
   const data = await response.json();
 
@@ -15,11 +25,12 @@ export const getTasks = async () => {
   return handleResponse(response);
 };
 
-export const createTask = async (taskData) => {
+export const createTask = async (taskData, token) => {
   const response = await fetch(API_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      ...getAuthHeaders(token),
     },
     body: JSON.stringify(taskData),
   });
@@ -27,11 +38,12 @@ export const createTask = async (taskData) => {
   return handleResponse(response);
 };
 
-export const updateTask = async (taskId, taskData) => {
+export const updateTask = async (taskId, taskData, token) => {
   const response = await fetch(`${API_URL}/${taskId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
+      ...getAuthHeaders(token),
     },
     body: JSON.stringify(taskData),
   });
@@ -39,9 +51,12 @@ export const updateTask = async (taskId, taskData) => {
   return handleResponse(response);
 };
 
-export const deleteTask = async (taskId) => {
+export const deleteTask = async (taskId, token) => {
   const response = await fetch(`${API_URL}/${taskId}`, {
     method: "DELETE",
+    headers: {
+      ...getAuthHeaders(token),
+    },
   });
 
   return handleResponse(response);

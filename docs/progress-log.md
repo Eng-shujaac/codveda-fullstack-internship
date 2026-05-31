@@ -79,3 +79,22 @@ Test frontend and capture screenshots.
 ### Next Step
 
 Test React frontend and capture screenshots.
+
+## Level 2 Task 2 - Authentication and Authorization
+
+### Completed
+
+* Added user registration and login
+* Added bcrypt password hashing
+* Added JWT token authentication
+* Added protected route middleware
+* Protected create/update/delete task routes
+* Added login and register UI
+* Stored JWT token in localStorage
+* Sent token with protected task requests
+* Added logout functionality
+* Completed frontend integration for authentication
+
+### Next Step
+
+Test authentication routes using Thunder Client.
