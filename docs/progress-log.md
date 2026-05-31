@@ -63,3 +63,19 @@ Test CRUD endpoints and later connect MongoDB.
 ### Next Step
 
 Test frontend and capture screenshots.
+
+## Level 2 Task 1 - React Frontend
+
+### Completed
+
+* React frontend created with Vite
+* Components added
+* API calls implemented
+* Loading and error states handled
+* Added update/edit task functionality
+* Connected React frontend to PUT /api/tasks/:id
+* React frontend now supports create, read, update, and delete actions
+
+### Next Step
+
+Test React frontend and capture screenshots.
